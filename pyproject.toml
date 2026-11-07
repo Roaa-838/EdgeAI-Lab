@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edgeai-lab"
+version = "0.1.0"
+description = "Reproducible PyTorch/ONNX/INT8 accuracy, latency, and model-size research benchmarks"
+requires-python = ">=3.10,<3.14"
+license = {text = "MIT"}
+readme = "README.md"
+dependencies = ["numpy>=1.24,<3", "Pillow>=10,<13", "psutil>=5.9,<8"]
+
+[project.optional-dependencies]
+train = ["torch>=2.3,<3", "torchvision>=0.18,<1"]
+onnx = ["onnx>=1.16,<2", "onnxruntime>=1.18,<2"]
+visualize = ["matplotlib>=3.8,<4", "pandas>=2,<3", "streamlit>=1.35,<2"]
+dev = ["pytest>=8,<10"]
+full = ["torch>=2.3,<3", "torchvision>=0.18,<1", "onnx>=1.16,<2", "onnxruntime>=1.18,<2", "matplotlib>=3.8,<4", "pandas>=2,<3", "streamlit>=1.35,<2", "pytest>=8,<10"]
+
+[project.scripts]
+edgeai = "edgeai.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

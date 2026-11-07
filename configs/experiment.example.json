@@ -1,0 +1,18 @@
+{
+  "model_architecture": "mobilenet_v3_small",
+  "initialization": "random_weights_train_from_scratch",
+  "dataset": "imagenette2-160",
+  "training_split": "train with 10% train-only development holdout",
+  "calibration_split": "train only",
+  "evaluation_split": "val only",
+  "seed": 42,
+  "input_size": 160,
+  "resize_size": 192,
+  "preprocess": "PIL bilinear resize short edge then center crop, ImageNet mean/std",
+  "cpu_threads": 4,
+  "bench_batch_sizes": [1, 8],
+  "warmup": 10,
+  "repeats": 40,
+  "benchmark_n": 200,
+  "quantization": "ONNX Runtime static QDQ post-training quantization with train-only calibration"
+}

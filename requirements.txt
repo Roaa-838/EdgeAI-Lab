@@ -1,0 +1,5 @@
+# Install: python -m pip install -e ".[full]"
+# This file intentionally includes only the lightweight core.
+numpy>=1.24,<3
+Pillow>=10,<13
+psutil>=5.9,<8
